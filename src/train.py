@@ -99,7 +99,7 @@ class NStepReplayBufferPER:
 # Don't modify the methods names and signatures, but you can add methods.
 # ENJOY!
 class ProjectAgent:
-    def __init__(self, config, input_dim, n_action):
+    def __init__(self, config=config, input_dim=env.observation_space.shape[0] , n_action=env.action_space.n):
         self.model = DQN(input_dim, config['hidden_dim'], n_action, config['depth']).to(device)
         self.target_model = DQN(input_dim, config['hidden_dim'], n_action, config['depth']).to(device)
         self.target_model.load_state_dict(self.model.state_dict())
