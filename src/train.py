@@ -128,7 +128,7 @@ class ProjectAgent:
         }, path)
 
     def load(self):
-        path = 'trained_model_final.pth'
+        path = os.path.join(os.getcwd(),'src','trained_model_final.pth')
         checkpoint = torch.load(path, map_location=device)
         self.model.load_state_dict(checkpoint['model_state_dict'])
         self.target_model.load_state_dict(checkpoint['target_model_state_dict'])
